@@ -1,0 +1,44 @@
+// init Isotope
+var $grid = $('.collection-list').isotope({
+    // options
+});
+
+// filter items on button click
+$('.filter-button-group').on('click', 'button', function() {
+    var filterValue = $(this).attr('data-filter');
+    resetFilterBtns();
+    $(this).addClass('active-filter-btn');
+    $grid.isotope({ filter: filterValue });
+});
+
+function resetFilterBtns() {
+    var filterBtns = $('.filter-button-group').find('button');
+    filterBtns.each(function() {
+        $(this).removeClass('active-filter-btn');
+    });
+}
+// Assume you have a global variable to store the cart items
+let cartItems = [];
+
+// Function to add item to the cart
+function addToCart(item) {
+    cartItems.push(item);
+    // You can perform additional logic here, like updating the UI to reflect the added item
+}
+
+// Event listener for "Add to Cart" button click
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        // Get item details from the DOM
+        let itemName = this.parentElement.querySelector('.text-capitalize').textContent.trim();
+        let itemPrice = parseFloat(this.parentElement.querySelector('.fw-bold').textContent.replace('₹', '').trim());
+        
+        // Create an object representing the item
+        let newItem = { name: itemName, price: itemPrice };
+        
+        // Add the item to the cart
+        addToCart(newItem);
+        // Optional: Display a message or update the UI to indicate the item was added to the cart
+        alert('Item added to cart!');
+    });
+});
