@@ -24,8 +24,7 @@ Open the index.html file in your web browser to view the website.
 Usage
 You can use this project as a template for building your own e-commerce website. Modify the HTML, CSS, and JavaScript files to customize the design and functionality according to your requirements.
 
-Contributing
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+
 
 Fork the repository on GitHub.
 Clone your forked repository to your local machine.
